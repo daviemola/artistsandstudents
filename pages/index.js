@@ -36,7 +36,7 @@ export default function Home({}) {
   return (
     <div className="mx-auto">
       <Sidebarr />
-      <div className="my-6">
+      <div className="my-4">
         <h1 className="md:text-4xl text-2xl font-bold text-center my-6 text-zinc-900">
           Schulaustellung
         </h1>
