@@ -1,9 +1,11 @@
+import Sidebar from "./Sidebar";
 import React from "react";
 
 export default function Layout({ children }) {
   return (
     <div className="">
-      <div id="">{children}</div>
+      <Sidebar />
+      {children}
     </div>
   );
 }

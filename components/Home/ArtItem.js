@@ -61,13 +61,13 @@ export default function ArtItem(art) {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold">Merkemele:</h2>
+              <h2 className="text-xl font-semibold">Merkmale:</h2>
               <p className="text-lg whitespace-normal">
                 {art?.art?.art?.epoche_definition.replace(/<br\s*\/?>/gm, "\n")}
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold">Verterer:</h2>
+              <h2 className="text-xl font-semibold">Vertreter:</h2>
               <ul className="list-disc ml-4 text-lg">
                 {art?.art?.art?.artist_ids
                   .slice(0, -1)
