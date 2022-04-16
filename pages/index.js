@@ -1,7 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import { useState, useEffect } from "react";
 import ArtItem from "@/components/Home/ArtItem";
-import { API_URL } from "@/config/index";
 import AOS from "aos";
 import { useRouter } from "next/router";
 import "aos/dist/aos.css";
@@ -15,7 +14,7 @@ export default function Home({}) {
   let path = router.asPath.toString();
 
   async function getAllPosts() {
-    const res = await fetch(`${API_URL}/api/artist/allarts`);
+    const res = await fetch(`api/artist/allarts`);
     const newPosts = await res.json();
     console.log(newPosts);
     setAllPosts(newPosts);
@@ -26,14 +25,12 @@ export default function Home({}) {
     if (path.includes("#")) {
       getAllPosts();
     }
+    //eslint-disable-next-line
   }, [path]);
 
   useEffect(() => {
     AOS.init();
   }, []);
-
-  // console.log(allPosts);
-  // console.log(posts);
 
   return (
     <Layout>
