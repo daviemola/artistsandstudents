@@ -1,12 +1,12 @@
 // import Layout from "../components/Layout/Layout";
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import ArtItem from "@/components/Home/ArtItem";
 import AOS from "aos";
 import { useRouter } from "next/router";
 import "aos/dist/aos.css";
 import ScrollItems from "@/components/Home/ScrollItems";
 import Sidebar from "@/components/Layout/Sidebar";
-import Sidebarr from "./sidebar";
 
 export default function Home({}) {
   const [posts, setPosts] = useState();
@@ -17,7 +17,8 @@ export default function Home({}) {
   async function getAllPosts() {
     const res = await fetch(`api/artist/allarts`);
     const newPosts = await res.json();
-    console.log(newPosts);
+
+    // console.log(newPosts.map((n) => console.log(parseInt(n.art.from))));
     setAllPosts(newPosts);
     router.push(path);
   }
@@ -35,7 +36,11 @@ export default function Home({}) {
 
   return (
     <div className="mx-auto">
-      <Sidebarr />
+      <Head>
+        <title>Schulaustellung</title>
+        <meta name="Schulaustellung" />
+      </Head>
+      <Sidebar />
       <div className="my-4">
         <h1 className="md:text-4xl text-2xl font-bold text-center my-6 text-zinc-900">
           Schulaustellung
@@ -43,7 +48,6 @@ export default function Home({}) {
         {path.includes("#") && (
           <>
             {allPosts?.map((art, index) => {
-              console.log(art.id);
               return (
                 <div key={index} id={art?.id}>
                   <div data-aos="fade-up">
