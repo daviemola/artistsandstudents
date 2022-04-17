@@ -9,11 +9,15 @@ export default function Sidebarr() {
 
   async function getAllPosts() {
     const res = await fetch(`api/artist/allarts`);
-    const newPosts = await res.json();
-    setPosts(newPosts);
+    let newPosts = await res.json();
+    const hashMap = {};
+    let newArr = newPosts.filter((item, _) => {
+      console.log(item.art.epoche);
+      let alreadyExists = hashMap.hasOwnProperty(item.art.epoche);
+      return alreadyExists ? false : (hashMap[item.art.epoche] = 1);
+    });
+    setPosts(newArr);
   }
-
-  // console.log(posts);
 
   useEffect(() => {
     getAllPosts();
