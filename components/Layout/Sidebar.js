@@ -50,38 +50,42 @@ export default function Sidebarr() {
                   <Disclosure>
                     {({}) => (
                       <>
-                        <span className="text-white">{post.art?.epoche}</span>
-                        <div className="cursor-pointer">
-                          <ul className="ml-4">
-                            {post.art?.artist_ids
-                              .slice(0, -1)
-                              .split(";")
-                              .map((art, index) => {
-                                return (
-                                  <div key={index}>
-                                    <Disclosure>
-                                      {({}) => (
-                                        <>
-                                          <Disclosure.Button className="flex justify-between w-full px-0 py-1 text-left text-white">
-                                            {art !== "na" && <li>{art}</li>}
-                                          </Disclosure.Button>
-                                          {post.artist_id === art && (
-                                            <Disclosure.Panel className="px-1 pb-2 text-md text-gray-200">
-                                              <Link href={`#${post.id}`}>
-                                                <a className="px-4">
-                                                  {post.name}
-                                                </a>
-                                              </Link>
-                                            </Disclosure.Panel>
-                                          )}
-                                        </>
-                                      )}
-                                    </Disclosure>
-                                  </div>
-                                );
-                              })}
-                          </ul>
-                        </div>
+                        <Disclosure.Button className="flex justify-between w-full px-0 py-1 text-left text-white">
+                          <span className="text-white">{post.art?.epoche}</span>
+                        </Disclosure.Button>
+                        <Disclosure.Panel className="px-1 pb-2 text-md text-gray-200">
+                          <div className="cursor-pointer">
+                            <ul className="ml-4">
+                              {post.art?.artist_ids
+                                .slice(0, -1)
+                                .split(";")
+                                .map((art, index) => {
+                                  return (
+                                    <div key={index}>
+                                      <Disclosure>
+                                        {({}) => (
+                                          <>
+                                            <Disclosure.Button className="flex justify-between w-full px-0 py-1 text-left text-white">
+                                              {<li>{art}</li>}
+                                            </Disclosure.Button>
+                                            {post.artist_id === art && (
+                                              <Disclosure.Panel className="px-1 pb-2 text-md text-gray-200">
+                                                <Link href={`#${post.id}`}>
+                                                  <a className="px-4">
+                                                    {post.name}
+                                                  </a>
+                                                </Link>
+                                              </Disclosure.Panel>
+                                            )}
+                                          </>
+                                        )}
+                                      </Disclosure>
+                                    </div>
+                                  );
+                                })}
+                            </ul>
+                          </div>
+                        </Disclosure.Panel>
                       </>
                     )}
                   </Disclosure>
