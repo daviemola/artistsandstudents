@@ -27,15 +27,15 @@ export default function Sidebarr() {
     <>
       {showSidebar ? (
         <button
-          className="flex md:p-4 p-2 text-4xl bg-zinc-900 items-center cursor-pointer fixed md:right-10 right-5 top-5 md:top-6 z-50 rounded backdrop-filter backdrop-blur-lg bg-opacity-75 "
+          className="flex hover:bg-slate-500 transition-all text-white md:p-4 p-2 text-4xl bg-zinc-900 items-center cursor-pointer fixed md:right-10 right-5 top-5 md:top-6 z-50 rounded backdrop-filter backdrop-blur-lg bg-opacity-75 "
           onClick={() => setShowSidebar(!showSidebar)}
         >
-          <FaTimes className="md:text-4xl text-2xl text-white" />
+          <FaTimes className="md:text-4xl text-2xl" />
         </button>
       ) : (
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="md:p-4 p-2 bg-zinc-800 text-white fixed z-30 flex items-center cursor-pointer md:right-10 right-5 top-5 md:top-6 rounded backdrop-filter backdrop-blur-lg bg-opacity-75 "
+          className="md:p-4 p-2 hover:bg-slate-500 transition-all bg-zinc-800 text-white fixed z-30 flex items-center cursor-pointer md:right-10 right-5 top-5 md:top-6 rounded backdrop-filter backdrop-blur-lg bg-opacity-75 "
         >
           <FaBars className="md:text-4xl text-2xl" />
         </button>
